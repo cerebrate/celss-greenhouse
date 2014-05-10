@@ -23,8 +23,8 @@ keep them powered (to run the pumps and lights), you can keep going on the same 
 forever. (In practice... well, try not to lose any to venting, accidents, or kerbonauts lost on EVA, 'kay?)
 
 Regarding the right number - a standard CELSS greenhouse can process enough CarbonDioxide, WasteWater, and Waste
-to keep two kerbals fed, watered, breathed, and cleaned up after. At the moment, more kerbals means, you guessed it,
-more greenhouses.
+to keep two kerbals fed, watered, breathed, and cleaned up after (with TLS default settings). At the moment, more
+kerbals means, you guessed it, more greenhouses.
 
 Why You'd Use It
 ----------------
@@ -33,22 +33,30 @@ For permanent installations, like space stations, or very long voyages, you migh
 greenhouses instead of mechanical recyclers because over time, that 10% lossage each time around the mechanical
 recyclage starts to add up.
 
-It also needs only about a quarter of the ElectricalCharge that its mechanical cousins do because, unlike them, all
-it has to run is some pumps and lights. Photosynthesis takes care of the rest.
+It also needs only about a quarter of the ElectricalCharge (375 per unit converted/half-day) that its
+mechanical cousins do because, unlike them, all it has to run is some pumps and lights. Photosynthesis takes
+care of the rest.
 
 On the downside, it's substantially less efficient than the mechanical systems, and also considerably more massy. And
 so it's rather _less_ suitable where short voyages or small spacecraft are concerned.
 
+How To Use It
+-------------
+
+Just install it on your ship or station, and activate it when you want it to start processing waste. You can also
+open and close the shutters, but until the natural-sunlight effects are implemented in a future version, that's
+just cosmetic.
+
 Where To Get It
 ---------------
 
-At this moment, nowhere. I'm not done writing it yet.
+You can download 0.1 (beta) from the Releases section of this GitHub repository. Unzip the file and place the included folder inside the GameData folder of your KSP installation.
 
 In Future Versions
 ------------------
 
 [ ] More sizes of greenhouse.
 
-[ ] Using natural sunlight to reduce power consumption when available.
+[ ] Using natural sunlight to reduce power consumption when available, and the shutters are open.
 
 [ ] Diverting output to other uses.
