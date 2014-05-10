@@ -48,5 +48,7 @@ In Future Versions
 ------------------
 
 [ ] More sizes of greenhouse.
+
 [ ] Using natural sunlight to reduce power consumption when available.
+
 [ ] Diverting output to other uses.
