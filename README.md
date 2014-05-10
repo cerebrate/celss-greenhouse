@@ -62,3 +62,8 @@ In Future Versions
 [ ] Using natural sunlight to reduce power consumption when available, and the shutters are open.
 
 [ ] Diverting output to other uses.
+
+Thanks
+------
+
+Many thanks to Zzz for making the greenhouse model available.
