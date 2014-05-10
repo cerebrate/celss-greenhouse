@@ -1,0 +1,6 @@
+The TacResources.cfg file in this folder is cloned from TAC Life Support,
+version 0.8. This is to avoid errors when this mod is loaded alone or first.
+
+This should cause no issues so long as the TacResources.cfg file in this mod
+remains identical to the proper TacResources.cfg file. If this stops being the
+case, go ahead and delete this one.
