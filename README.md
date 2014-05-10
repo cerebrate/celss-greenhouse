@@ -43,3 +43,10 @@ Where To Get It
 ---------------
 
 At this moment, nowhere. I'm not done writing it yet.
+
+In Future Versions
+------------------
+
+[ ] More sizes of greenhouse.
+[ ] Using natural sunlight to reduce power consumption when available.
+[ ] Diverting output to other uses.
