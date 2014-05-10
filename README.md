@@ -47,6 +47,8 @@ Just install it on your ship or station, and activate it when you want it to sta
 open and close the shutters, but until the natural-sunlight effects are implemented in a future version, that's
 just cosmetic.
 
+For those playing in career mode, it unlocks as part of "Advanced Science Tech".
+
 Where To Get It
 ---------------
 
