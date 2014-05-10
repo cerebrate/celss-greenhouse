@@ -50,7 +50,7 @@ just cosmetic.
 Where To Get It
 ---------------
 
-You can download 0.1 (beta) from the Releases section of this GitHub repository. Unzip the file and place the included folder inside the GameData folder of your KSP installation.
+You can download 0.1 (beta) from the Releases section of this GitHub repository. Unzip the file and place the included folder inside the folder of your KSP installation.
 
 In Future Versions
 ------------------
