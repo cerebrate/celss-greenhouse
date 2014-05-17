@@ -1,5 +1,5 @@
 You have installed Lacuna Space Systems CELSS Greenhouse,
-version 0.1.
+version 0.2.
 
 See the README.md and LICENSE files, always available at
 https://github.com/cerebrate/celss-greenhouse
