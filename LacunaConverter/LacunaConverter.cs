@@ -157,6 +157,9 @@ namespace ArkaneSystems.KerbalSpaceProgram.Lacuna
 
             if (state != StartState.Editor)
                 this.part.force_activate ();
+
+            this.ShutterAnimation[this.ShutterAnimationName].speed = -1.0f;
+            this.ShutterAnimation.Play (this.ShutterAnimationName);
         }
 
         public override void OnFixedUpdate ()
