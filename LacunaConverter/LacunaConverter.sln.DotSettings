@@ -1,0 +1,17 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/CodeStyle/FileHeader/FileHeaderText/@EntryValue">$PROJECT$ - $FILENAME$&#xD;
+&#xD;
+Lacuna Space Systems's CELSS Greenhouse for Kerbal Space Program.&#xD;
+&#xD;
+(Note that Lacuna Space Systems is a fictitious corporate entity created for entertainment&#xD;
+ purposes. It is in no way meant to represent a real corporate or other entity, and any&#xD;
+ similarities to such are purely coincidental.)&#xD;
+&#xD;
+Alistair J. R. Young&#xD;
+Arkane Systems&#xD;
+&#xD;
+Copyright Arkane Systems 2014.  All rights reserved. License available under Creative&#xD;
+Commons; see the LICENSE file for more details.&#xD;
+&#xD;
+Created: $CREATED_YEAR$-$CREATED_MONTH$-$CREATED_DAY$ $CREATED_TIME$&#xD;
+</s:String></wpf:ResourceDictionary>
