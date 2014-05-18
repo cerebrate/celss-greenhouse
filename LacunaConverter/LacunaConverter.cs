@@ -86,6 +86,11 @@ namespace ArkaneSystems.KerbalSpaceProgram.Lacuna
         [KSPField]
         public string IsruOutputResources = "";
 
+        [KSPField]
+        public string ShutterAnimationName = "";
+
+        public Animation ShutterAnimation = null;
+
         [KSPField (isPersistant = true)]
         public LacunaConverterMode Mode = LacunaConverterMode.Disabled;
 
@@ -101,7 +106,12 @@ namespace ArkaneSystems.KerbalSpaceProgram.Lacuna
         {
             this.Mode = LacunaConverterMode.Celss;
 
-            // open shutters?
+            // open shutters
+            if (this.ShutterAnimation != null)
+            {
+                this.ShutterAnimation[this.ShutterAnimationName].speed = 1.0f;
+                this.ShutterAnimation.Play (this.ShutterAnimationName);
+            }
         }
 
         [KSPEvent (guiActive = true, guiName = "Activate in ISRU mode", active = true)]
@@ -109,21 +119,36 @@ namespace ArkaneSystems.KerbalSpaceProgram.Lacuna
         {
             this.Mode = LacunaConverterMode.Isru;
 
-            // open shutters?
+            // open shutters
+            if (this.ShutterAnimation != null)
+            {
+                this.ShutterAnimation[this.ShutterAnimationName].speed = 1.0f;
+                this.ShutterAnimation.Play (this.ShutterAnimationName);
+            }
         }
 
-        [KSPEvent (guiActive = true, guiName = "Shut down", active = false)]
+        [KSPEvent (guiActive = true, guiName = "Shut Down", active = false)]
         public void ShutdownGreenhouse ()
         {
             this.Mode = LacunaConverterMode.Disabled;
 
-            // close shutters?
+            // close shutters
+            if (this.ShutterAnimation != null)
+            {
+                this.ShutterAnimation[this.ShutterAnimationName].speed = -1.0f;
+                this.ShutterAnimation.Play (this.ShutterAnimationName);
+            }
         }
 
         public override void OnAwake ()
         {
             base.OnAwake ();
             this.UpdateResourceLists ();
+
+            if (!string.IsNullOrEmpty (this.ShutterAnimationName))
+            {
+                this.ShutterAnimation = this.part.FindModelAnimators (this.ShutterAnimationName)[0];
+            }
         }
 
         public override void OnStart (StartState state)
