@@ -92,9 +92,15 @@ namespace ArkaneSystems.KerbalSpaceProgram.Lacuna
         public Animation ShutterAnimation = null;
 
         [KSPField (isPersistant = true)]
-        public LacunaConverterMode Mode = LacunaConverterMode.Disabled;
+        public int _underlyingMode;
 
-        protected string[] Modes = {"Inactive", "Operating in CELSS mode", "Operating in ISRU mode"};
+        public LacunaConverterMode Mode
+        {
+            get { return (LacunaConverterMode) this._underlyingMode; }
+            set { this._underlyingMode = (int) value;  }
+        }
+
+        protected readonly string[] Modes = {"Inactive", "Operating in CELSS mode", "Operating in ISRU mode"};
 
         [KSPField (isPersistant = false, guiActive = true, guiName = "Status")]
         public string StatusDisplay;
@@ -158,8 +164,11 @@ namespace ArkaneSystems.KerbalSpaceProgram.Lacuna
             if (state != StartState.Editor)
                 this.part.force_activate ();
 
-            this.ShutterAnimation[this.ShutterAnimationName].speed = -1.0f;
-            this.ShutterAnimation.Play (this.ShutterAnimationName);
+            if (this.Mode == LacunaConverterMode.Disabled)
+            {
+                this.ShutterAnimation[this.ShutterAnimationName].speed = -1.0f;
+                this.ShutterAnimation.Play (this.ShutterAnimationName);
+            }
         }
 
         public override void OnFixedUpdate ()
