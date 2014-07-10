@@ -9,7 +9,7 @@ Requires
 * TAC Life Support, to provide the life support system this plugs into. NOTE: As of 0.3, this is a hard dependency - celss-greenhouse requires the TAC-LS plugin in order to function. Installing this without also installing TAC-LS will crash harder than Jeb with a case of vodka and a barrel of ClF3. You have been warned!
 * KSP Interstellar (optionally), which provides the resources ISRU mode uses and means to harvest them. It also provides reactors which may be a more practical way of handling the high power requirements of these greenhouses than extensive solar panel arrays.
 
-WARNING: This release uses the KPSI/TAC-LS compatibility mod that recalibrates TAC-LS in liters.
+WARNING: *If* you are using TAC-LS lower than prelease 0.9, then this release uses the KPSI/TAC-LS compatibility mod that recalibrates TAC-LS in liters. (In 0.9 and above, it uses this natively, so ignore this section.)
 
 * If you don't want this, you'll need to go into both part.cfg files, rename Water to LqdWater in the ISRU mode input sections and edit the quantities for CarbonDioxide, WasteWater, Waste, Oxygen, Water, and Food back to 0.9 and 1.0, appropriately. DON'T do this for Ammonia or LqdWater, however.
 * If you DO want this and don't have it, you can grab a copy here: https://gist.github.com/cerebrate/0d6d4366f29684dd39f3
