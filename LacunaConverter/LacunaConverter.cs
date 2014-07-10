@@ -28,8 +28,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using Tac;
-
 using UnityEngine;
 
 #endregion
@@ -189,10 +187,8 @@ namespace ArkaneSystems.KerbalSpaceProgram.Lacuna
             this.Events["ActivateInIsruMode"].active = (this.Mode == LacunaConverterMode.Disabled);
             this.Events["ShutdownGreenhouse"].active = (this.Mode != LacunaConverterMode.Disabled);
 
-            GlobalSettings globalSettings = TacLifeSupport.Instance.globalSettings;
-
             double deltaTime = Math.Min (Planetarium.GetUniversalTime () - this.lastUpdateTime,
-                                         globalSettings.MaxDeltaTime);
+                                         TacSettings.MaxDeltaTime);
             this.lastUpdateTime += deltaTime;
 
             List<LacunaResourceRatio> inputResourceList;
@@ -228,7 +224,7 @@ namespace ArkaneSystems.KerbalSpaceProgram.Lacuna
             double desiredAmount = this.ConversionRate / SecondsPerDay * deltaTime;
             double maxElectricityDesired = Math.Min (desiredAmount,
                                                      this.ConversionRate / SecondsPerDay *
-                                                     Math.Max (globalSettings.ElectricityMaxDeltaTime,
+                                                     Math.Max (TacSettings.ElectricityMaxDeltaTime,
                                                                Time.fixedDeltaTime));
                 // Limit the max electricity consumed when reloading a vessel
 
@@ -237,7 +233,7 @@ namespace ArkaneSystems.KerbalSpaceProgram.Lacuna
             {
                 if (!output.AllowExtra)
                 {
-                    if (output.Resource.id == globalSettings.ElectricityId && desiredAmount > maxElectricityDesired)
+                    if (output.Resource.id == TacSettings.ElectricityId && desiredAmount > maxElectricityDesired)
                     {
                         // Special handling for electricity
                         double desiredElectricity = maxElectricityDesired * output.Ratio;
@@ -262,7 +258,7 @@ namespace ArkaneSystems.KerbalSpaceProgram.Lacuna
 
             foreach (LacunaResourceRatio input in inputResourceList)
             {
-                if (input.Resource.id == globalSettings.ElectricityId && desiredAmount > maxElectricityDesired)
+                if (input.Resource.id == TacSettings.ElectricityId && desiredAmount > maxElectricityDesired)
                 {
                     // Special handling for electricity
                     double desiredElectricity = maxElectricityDesired * input.Ratio;
@@ -287,7 +283,7 @@ namespace ArkaneSystems.KerbalSpaceProgram.Lacuna
             {
                 double desired;
 
-                if (input.Resource.id == globalSettings.ElectricityId)
+                if (input.Resource.id == TacSettings.ElectricityId)
                     desired = Math.Min (desiredAmount, maxElectricityDesired) * input.Ratio;
                 else
                     desired = desiredAmount * input.Ratio;
@@ -305,7 +301,7 @@ namespace ArkaneSystems.KerbalSpaceProgram.Lacuna
             {
                 double desired;
 
-                if (output.Resource.id == globalSettings.ElectricityId)
+                if (output.Resource.id == TacSettings.ElectricityId)
                     desired = Math.Min (desiredAmount, maxElectricityDesired) * output.Ratio;
                 else
                     desired = desiredAmount * output.Ratio;
@@ -326,7 +322,7 @@ namespace ArkaneSystems.KerbalSpaceProgram.Lacuna
         {
             this.Log ("OnLoad: " + node);
             base.OnLoad (node);
-            this.lastUpdateTime = Utilities.GetValue (node, "lastUpdateTime", this.lastUpdateTime);
+            this.lastUpdateTime = GetConfigValue (node, "lastUpdateTime", this.lastUpdateTime);
 
             this.UpdateResourceLists ();
         }
@@ -438,6 +434,19 @@ namespace ArkaneSystems.KerbalSpaceProgram.Lacuna
                                                  (result, value) =>
                                                  result + value.Resource.name + ", " + value.Ratio + ", ");
             this.Log ("Output resources parsed: " + ratios + "\nfrom " + resourceString);
+        }
+
+        public static double GetConfigValue (ConfigNode config, string name, double currentValue)
+        {
+            double newValue;
+            if (config.HasValue (name) && double.TryParse (config.GetValue (name), out newValue))
+            {
+                return newValue;
+            }
+            else
+            {
+                return currentValue;
+            }
         }
     }
 }

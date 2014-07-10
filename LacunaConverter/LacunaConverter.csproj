@@ -54,7 +54,10 @@
     <Compile Include="LacunaConverter.cs" />
     <Compile Include="LacunaConverterMode.cs" />
     <Compile Include="LacunaResourceRatio.cs" />
+    <Compile Include="Logging.cs" />
+    <Compile Include="PartExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TacSettings.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
